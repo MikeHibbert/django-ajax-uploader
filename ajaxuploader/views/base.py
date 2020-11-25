@@ -25,7 +25,7 @@ class AjaxFileUploader(object):
         if request.method == "POST":
             if request.is_ajax():
                 # the file is stored raw in the request
-                upload = request
+                upload = request.FILES['qqfile']
                 is_raw = False
                 # AJAX Upload will pass the filename in the querystring if it
                 # is the "advanced" ajax upload
