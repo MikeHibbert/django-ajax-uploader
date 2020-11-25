@@ -25,7 +25,7 @@ class AjaxFileUploader(object):
         if request.method == "POST":
             if request.is_ajax():
                 # the file is stored raw in the request
-                upload = request.FILES['qqfile']
+                upload = request
                 is_raw = False
                 # AJAX Upload will pass the filename in the querystring if it
                 # is the "advanced" ajax upload
@@ -33,7 +33,7 @@ class AjaxFileUploader(object):
                     if 'qqfile' in request.GET:
                         filename = request.GET['qqfile']
                     else:
-                        filename = request.POST['qqfilename']
+                        filename = request.POST['qqfile']
                 except KeyError:
                     return HttpResponseBadRequest("AJAX request not valid")
             # not an ajax upload, so it was the "basic" iframe version with
